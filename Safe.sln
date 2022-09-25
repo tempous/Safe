@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleSafe", "ConsoleSafe\ConsoleSafe.csproj", "{93E9139D-CBD8-438F-8C66-5D1CB2431E3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleSafe", "ConsoleSafe\ConsoleSafe.csproj", "{93E9139D-CBD8-438F-8C66-5D1CB2431E3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsSafe", "WinFormsSafe\WinFormsSafe.csproj", "{D264278A-1350-4EFA-ACC0-3A433D23B44E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{93E9139D-CBD8-438F-8C66-5D1CB2431E3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93E9139D-CBD8-438F-8C66-5D1CB2431E3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93E9139D-CBD8-438F-8C66-5D1CB2431E3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D264278A-1350-4EFA-ACC0-3A433D23B44E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D264278A-1350-4EFA-ACC0-3A433D23B44E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D264278A-1350-4EFA-ACC0-3A433D23B44E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D264278A-1350-4EFA-ACC0-3A433D23B44E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
