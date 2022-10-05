@@ -40,8 +40,8 @@ namespace WinFormsSafe
             this.tbSize.HideSelection = false;
             this.tbSize.Location = new System.Drawing.Point(38, 6);
             this.tbSize.Name = "tbSize";
-            this.tbSize.PlaceholderText = "Default = 4";
-            this.tbSize.Size = new System.Drawing.Size(67, 23);
+            this.tbSize.PlaceholderText = "4";
+            this.tbSize.Size = new System.Drawing.Size(30, 23);
             this.tbSize.TabIndex = 0;
             this.tbSize.TabStop = false;
             this.tbSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -66,7 +66,7 @@ namespace WinFormsSafe
             // lbStep
             // 
             this.lbStep.AutoSize = true;
-            this.lbStep.Location = new System.Drawing.Point(105, 10);
+            this.lbStep.Location = new System.Drawing.Point(75, 10);
             this.lbStep.Name = "lbStep";
             this.lbStep.Size = new System.Drawing.Size(0, 15);
             this.lbStep.TabIndex = 4;

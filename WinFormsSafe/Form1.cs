@@ -17,12 +17,6 @@ namespace WinFormsSafe
             InitializeComponent();
             SetControlSize();
             SetHandles();
-
-            if (Check(buttons))
-            {
-                MessageBox.Show("Safe opened successfully!\nGame over!");
-                panel.Enabled = false;
-            }
         }
 
         private void SetHandles()
@@ -47,7 +41,7 @@ namespace WinFormsSafe
                         Height = size,
                         Left = left,
                         Top = top,
-                        Tag = $"{i + 1} {j + 1}".ToString()
+                        Tag = $"{i} {j}".ToString()
                     };
 
                     button.Click += Button_Click;
@@ -59,6 +53,8 @@ namespace WinFormsSafe
 
                 top += size + offset;
             }
+
+            CheckHandleStates();
         }
 
         private void tbSize_KeyDown(object sender, KeyEventArgs e)
@@ -69,7 +65,8 @@ namespace WinFormsSafe
             {
                 if (int.TryParse(textbox.Text, out int N))
                 {
-                    this.N = N;
+                    step = 0;
+                    this.N = N > 1 ? N : 2;
                     panel.Enabled = true;
 
                     SetControlSize();
@@ -91,27 +88,30 @@ namespace WinFormsSafe
         {
             var button = (Button)sender;
             var coords = button.Tag.ToString().Split().Select(int.Parse).ToArray();
-            var x = coords[0] - 1;
-            var y = coords[1] - 1;
-
-            buttons[x, y].Text = buttons[x, y].Text == "-" ? "|" : "-";
+            var x = coords[0];
+            var y = coords[1];
+            ChangeHandleState(x, y);
 
             lbStep.Text = $"Step {++step}";
 
             for (int i = 0; i < N; i++)
             {
-                buttons[x, i].Text = buttons[x, i].Text == "-" ? "|" : "-";
-                buttons[i, y].Text = buttons[i, y].Text == "-" ? "|" : "-";
+                if (i != y || (i != x))
+                {
+                    ChangeHandleState(x, i);
+                    ChangeHandleState(i, y);
+                }
             }
 
-            if (Check(buttons))
-            {
-                MessageBox.Show("Safe opened successfully!\nGame over!");
-                panel.Enabled = false;
-            }
+            CheckHandleStates();
         }
 
-        private static bool Check(Button[,] buttons, int horCount = 0, int verCount = 0)
+        private void ChangeHandleState(int i, int j)
+        {
+            buttons[i, j].Text = buttons[i, j].Text == "-" ? "|" : "-";
+        }
+
+        private void CheckHandleStates(int horCount = 0, int verCount = 0)
         {
             var count = buttons.Length;
 
@@ -126,7 +126,11 @@ namespace WinFormsSafe
                 }
             }
 
-            return horCount == count || verCount == count;
+            if (horCount == count || verCount == count)
+            {
+                panel.Enabled = false;
+                MessageBox.Show("Safe opened successfully!\nGame over!");
+            }
         }
     }
 }
